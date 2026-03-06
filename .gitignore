@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+
+# Archive (development history, not needed for submission)
+archive/
+
+leaderboard.md
