@@ -6,6 +6,12 @@ Based on Lokimorty's accepted 10-parameter hand-coded submission.
 Identical architecture to the hand-coded 6p submission;
 weights discovered from scratch by GPU coordinate descent.
 
+Training Tricks:
+  - Gradient-Free Optimization: Replaced backpropagation with a custom GPU-accelerated coordinate descent algorithm.
+  - Generative Constraint: Leveraged the highly constrained 6-parameter space, which is small enough to permit brute-force structural search.
+  - Massively Parallel Fitness Evaluation: Evaluated thousands of parameter candidates simultaneously across batches using PyTorch logic.
+  - Landscape-Aware Escapes: The optimizer continuously monitored sensitivity and edge-bounds to dynamically widen search spaces or perform targeted dimensional perturbations to escape plateaus.
+
 The 6 learned parameters (found by optimizer):
   embed_w0  =   524.279  — embedding bias (parabolic vertex)
   embed_w1  =     0.0016 — embedding quadratic coefficient
@@ -175,7 +181,8 @@ def build_model():
             "tied carry hinge gate",
             "shared carry-scale scalar",
             "2-parameter embedding e(d)=[c0-c1*d^2,-d]",
-            "GPU coordinate descent training (generic optimizer)",
+            "gradient-free coordinate descent training",
+            "landscape-aware parameter perturbations",
         ],
     }
     return model, metadata
