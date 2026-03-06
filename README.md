@@ -8,7 +8,7 @@ This repository contains the weights and training implementation for a **6-param
 - **Accuracy**: 100.00% (Verified on 10,000+ random samples).
 
 ## Training Algorithm
-Finding these parameters was made possible by the discovery that the 6-parameter space is sufficiently constrained to permit **gradient-free optimization**. 
+Finding these parameters was made possible by the discovery that the 6-parameter space is sufficiently constrained to permit **derivative-free optimization**. 
 
 This model was trained using a custom **GPU-accelerated Coordinate Descent** algorithm. By leveraging a generic optimizer on a highly constrained architectural search space, we were able to reach 100% accuracy without traditional backpropagation.
 
