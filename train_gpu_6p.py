@@ -1,4 +1,3 @@
-%%writefile train_gpu_6p.py
 #!/usr/bin/env python3
 """
 train_gpu_6p.py — GPU-accelerated coordinate descent for the 6-parameter adder.
